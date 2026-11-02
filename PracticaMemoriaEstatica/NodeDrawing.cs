@@ -19,7 +19,7 @@ public static class NodeDrawing
     private static readonly Color GhostColor = Color.FromArgb(224, 224, 224);
 
     // Draws the chain of nodes (as many as fit), the "+k" box for the rest and, if there is one, the node removed last.
-    public static void Draw(Graphics g, Rectangle area, IReadOnlyList<InfoNodo> nodes, int total, InfoNodo? detached)
+    public static void Draw(Graphics g, Rectangle area, IReadOnlyList<NodeInfo> nodes, int total, NodeInfo? detached)
     {
         g.SmoothingMode = SmoothingMode.AntiAlias;
         g.Clear(BackgroundColor);
@@ -120,7 +120,7 @@ public static class NodeDrawing
             int y = area.Height - GhostZoneHeight + 14;
             DrawNode(g, new Point(Margin, y), ghost, GhostColor, dashedPen, valueFont, idFont, centered);
 
-            string next = ghost.IdSiguiente is int nextId
+            string next = ghost.NextId is int nextId
                 ? $" Su campo siguiente aún apunta al nodo #{nextId}, pero eso no lo mantiene vivo."
                 : " No tenía siguiente.";
             int textX = Margin + BoxWidth + 16;
@@ -129,7 +129,7 @@ public static class NodeDrawing
         }
     }
 
-    private static void DrawNode(Graphics g, Point origin, InfoNodo info, Color color, Pen pen,
+    private static void DrawNode(Graphics g, Point origin, NodeInfo info, Color color, Pen pen,
         Font valueFont, Font idFont, StringFormat centered)
     {
         var box = new Rectangle(origin.X, origin.Y, BoxWidth, BoxHeight);
@@ -142,10 +142,10 @@ public static class NodeDrawing
         g.DrawRectangle(pen, box);
         g.DrawLine(pen, pointer.X, pointer.Y, pointer.X, pointer.Bottom);
 
-        g.DrawString(info.Dato.ToString(), valueFont, Brushes.Black, new Rectangle(data.X, data.Y + 2, data.Width, 22), centered);
+        g.DrawString(info.Value.ToString(), valueFont, Brushes.Black, new Rectangle(data.X, data.Y + 2, data.Width, 22), centered);
         g.DrawString($"#{info.Id}", idFont, Brushes.DimGray, new Rectangle(data.X, data.Y + 24, data.Width, 16), centered);
 
-        if (info.IdSiguiente is null)
+        if (info.NextId is null)
         {
             g.DrawLine(pen, pointer.X + 5, pointer.Bottom - 5, pointer.Right - 5, pointer.Y + 5);
         }

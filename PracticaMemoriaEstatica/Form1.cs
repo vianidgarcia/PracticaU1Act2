@@ -1,19 +1,19 @@
 namespace PracticaU1Act2;
 
 /// <summary>
-/// Lógica del formulario: solo eventos y presentación de resultados.
-/// Los controles están definidos en Form1.Designer.cs y las pruebas en BancoDePruebas.
+/// Form logic: only events and result display.
+/// The controls are defined in Form1.Designer.cs and the tests in TestBench.
 /// </summary>
 public partial class Form1 : Form
 {
-    private const int MaximoNodosVisibles = 30;
+    private const int MaxVisibleNodes = 30;
 
-    private ArregloEnEjecucion _arreglo = new();   // estado del Programa 1
-    private ListaDinamica _lista = new();          // estado del Programa 2
+    private RuntimeArray _array = new();   // state of Program 1
+    private DynamicList _list = new();          // state of Program 2
 
-    private int[]? _previousBlock;                 // bloque anterior tras redimensionar (solo para dibujar)
+    private int[]? _previousBlock;                 // block before the resize (only used for drawing)
     private int _previousBlockId;
-    private InfoNodo? _detachedNode;               // último nodo eliminado (solo para dibujar)
+    private NodeInfo? _detachedNode;               // last removed node (only used for drawing)
 
     public Form1()
     {
@@ -21,224 +21,224 @@ public partial class Form1 : Form
     }
 
     // =====================================================================
-    // Pestaña 1: arreglos en tiempo de ejecución
+    // Tab 1: arrays at run time
     // =====================================================================
 
-    private void btnCrearArreglo_Click(object? sender, EventArgs e) => EjecutarSeguro(() =>
+    private void btnCreateArray_Click(object? sender, EventArgs e) => RunSafely(() =>
     {
-        _arreglo.Crear((int)numTamanoInicial.Value);
+        _array.Create((int)numInitialSize.Value);
         _previousBlock = null;
         arrayCanvas.Invalidate();
-        Escribir(txtArreglos,
-            $"Arreglo creado en tiempo de ejecución con tamaño {_arreglo.Longitud} (id #{_arreglo.Identificador}).",
-            $"Contenido: {_arreglo.Contenido()}");
+        AppendLines(txtArrays,
+            $"Arreglo creado en tiempo de ejecución con tamaño {_array.Length} (id #{_array.Identifier}).",
+            $"Contenido: {_array.GetContent()}");
     });
 
-    private void btnRedimensionar_Click(object? sender, EventArgs e) => EjecutarSeguro(() =>
+    private void btnResize_Click(object? sender, EventArgs e) => RunSafely(() =>
     {
-        int longitudAnterior = _arreglo.Longitud;
-        int idAnterior = _arreglo.Identificador;
-        int[]? bloqueAnterior = _arreglo.CopiarDatos();
-        _arreglo.Redimensionar((int)numTamanoNuevo.Value);
+        int previousLength = _array.Length;
+        int previousId = _array.Identifier;
+        int[]? previousBlock = _array.CopyData();
+        _array.Resize((int)numNewSize.Value);
 
-        bool bloqueNuevo = _arreglo.Identificador != idAnterior;
-        _previousBlock = bloqueNuevo ? bloqueAnterior : null;
-        _previousBlockId = idAnterior;
+        bool isNewBlock = _array.Identifier != previousId;
+        _previousBlock = isNewBlock ? previousBlock : null;
+        _previousBlockId = previousId;
         arrayCanvas.Invalidate();
 
-        var lineas = new List<string> { $"Redimensionado de {longitudAnterior} a {_arreglo.Longitud} elementos." };
-        lineas.Add(_arreglo.Identificador == idAnterior
+        var lines = new List<string> { $"Redimensionado de {previousLength} a {_array.Length} elementos." };
+        lines.Add(_array.Identifier == previousId
             ? "El tamaño no cambió, así que no se reservó un bloque nuevo."
-            : $"Se reservó un bloque nuevo (id anterior #{idAnterior}, id nuevo #{_arreglo.Identificador}) y se copiaron los datos.");
-        if (_arreglo.Longitud < longitudAnterior)
-            lineas.Add($"Advertencia: al reducir el arreglo se perdieron {longitudAnterior - _arreglo.Longitud} elementos.");
-        lineas.Add($"Contenido: {_arreglo.Contenido()}");
+            : $"Se reservó un bloque nuevo (id anterior #{previousId}, id nuevo #{_array.Identifier}) y se copiaron los datos.");
+        if (_array.Length < previousLength)
+            lines.Add($"Advertencia: al reducir el arreglo se perdieron {previousLength - _array.Length} elementos.");
+        lines.Add($"Contenido: {_array.GetContent()}");
 
-        Escribir(txtArreglos, lineas.ToArray());
+        AppendLines(txtArrays, lines.ToArray());
     });
 
-    private async void btnArregloFijo_Click(object? sender, EventArgs e) =>
-        await EjecutarAsync(() => MostrarTextoAsync(txtArreglos, "Memoria estática: arreglo de tamaño fijo en la pila", DemostracionesMemoria.ArregloFijoEnPila));
+    private async void btnFixedArray_Click(object? sender, EventArgs e) =>
+        await RunAsync(() => ShowTextAsync(txtArrays, "Memoria estática: arreglo de tamaño fijo en la pila", MemoryDemos.FixedArrayOnStack));
 
-    private async void btnCrecimiento_Click(object? sender, EventArgs e) =>
-        await EjecutarAsync(() => MostrarTextoAsync(txtArreglos, "Caso de prueba: crecimiento automático del vector", BancoDePruebas.CasoVector));
+    private async void btnGrowthCase_Click(object? sender, EventArgs e) =>
+        await RunAsync(() => ShowTextAsync(txtArrays, "Caso de prueba: crecimiento automático del vector", TestBench.VectorCase));
 
-    private void btnLimpiarArreglos_Click(object? sender, EventArgs e)
+    private void btnClearArrays_Click(object? sender, EventArgs e)
     {
-        txtArreglos.Clear();
-        _arreglo = new ArregloEnEjecucion();
+        txtArrays.Clear();
+        _array = new RuntimeArray();
         _previousBlock = null;
         arrayCanvas.Invalidate();
     }
 
     // =====================================================================
-    // Pestaña 2: memoria dinámica (Heap)
+    // Tab 2: dynamic memory (Heap)
     // =====================================================================
 
-    private void btnCrearNodos_Click(object? sender, EventArgs e) => EjecutarSeguro(() =>
+    private void btnCreateNodes_Click(object? sender, EventArgs e) => RunSafely(() =>
     {
-        int cantidad = (int)numNodos.Value;
-        for (int i = 0; i < cantidad; i++)
-            _lista.Agregar((_lista.Cantidad + 1) * 10);
+        int count = (int)numNodes.Value;
+        for (int i = 0; i < count; i++)
+            _list.Add((_list.Count + 1) * 10);
         _detachedNode = null;
         nodeCanvas.Invalidate();
 
-        Escribir(txtDinamica,
-            $"Se crearon {cantidad} nodos con new (se alojan en el Heap). Total en la lista: {_lista.Cantidad}.");
+        AppendLines(txtDynamic,
+            $"Se crearon {count} nodos con new (se alojan en el Heap). Total en la lista: {_list.Count}.");
     });
 
-    private void btnVerReferencias_Click(object? sender, EventArgs e) => EjecutarSeguro(() =>
+    private void btnShowReferences_Click(object? sender, EventArgs e) => RunSafely(() =>
     {
-        if (_lista.Cantidad == 0)
+        if (_list.Count == 0)
         {
-            Escribir(txtDinamica, "La lista está vacía: no hay nodos en el Heap.");
+            AppendLines(txtDynamic, "La lista está vacía: no hay nodos en el Heap.");
             return;
         }
 
-        var lineas = new List<string> { $"Nodos enlazados ({_lista.Cantidad}). El id identifica a cada objeto en el Heap:" };
-        foreach (InfoNodo nodo in _lista.DescribirNodos(MaximoNodosVisibles))
+        var lines = new List<string> { $"Nodos enlazados ({_list.Count}). El id identifica a cada objeto en el Heap:" };
+        foreach (NodeInfo node in _list.DescribeNodes(MaxVisibleNodes))
         {
-            string siguiente = nodo.IdSiguiente is int id ? $"#{id}" : "null";
-            lineas.Add($"  [{nodo.Posicion}] dato {nodo.Dato,6} | id #{nodo.Id} | siguiente -> {siguiente}");
+            string next = node.NextId is int id ? $"#{id}" : "null";
+            lines.Add($"  [{node.Position}] dato {node.Value,6} | id #{node.Id} | siguiente -> {next}");
         }
-        if (_lista.Cantidad > MaximoNodosVisibles)
-            lineas.Add($"  ... ({_lista.Cantidad - MaximoNodosVisibles} nodos más; el último apunta a null)");
+        if (_list.Count > MaxVisibleNodes)
+            lines.Add($"  ... ({_list.Count - MaxVisibleNodes} nodos más; el último apunta a null)");
 
-        Escribir(txtDinamica, lineas.ToArray());
+        AppendLines(txtDynamic, lines.ToArray());
     });
 
-    private void btnEliminarPrimero_Click(object? sender, EventArgs e) => EjecutarSeguro(() =>
+    private void btnRemoveFirst_Click(object? sender, EventArgs e) => RunSafely(() =>
     {
-        List<InfoNodo> primero = _lista.DescribirNodos(1).ToList();
-        bool eliminado = _lista.EliminarPrimero();
-        if (eliminado)
-            _detachedNode = primero[0];
+        List<NodeInfo> first = _list.DescribeNodes(1).ToList();
+        bool removed = _list.RemoveFirst();
+        if (removed)
+            _detachedNode = first[0];
         nodeCanvas.Invalidate();
-        Escribir(txtDinamica, eliminado
-            ? $"Se eliminó el primer nodo: ya nadie lo referencia y el GC puede liberarlo. Quedan {_lista.Cantidad}."
+        AppendLines(txtDynamic, removed
+            ? $"Se eliminó el primer nodo: ya nadie lo referencia y el GC puede liberarlo. Quedan {_list.Count}."
             : "La lista está vacía: no hay nada que eliminar.");
     });
 
-    private async void btnValorReferencia_Click(object? sender, EventArgs e) =>
-        await EjecutarAsync(() => MostrarTextoAsync(txtDinamica, "Valor (copia) frente a referencia (objeto en el Heap)", DemostracionesMemoria.ValorVsReferencia));
+    private async void btnValueVsReference_Click(object? sender, EventArgs e) =>
+        await RunAsync(() => ShowTextAsync(txtDynamic, "Valor (copia) frente a referencia (objeto en el Heap)", MemoryDemos.ValueVsReference));
 
-    private async void btnLiberar_Click(object? sender, EventArgs e)
+    private async void btnRelease_Click(object? sender, EventArgs e)
     {
-        int nodos = (int)numLiberar.Value;
-        await EjecutarAsync(() => MostrarTextoAsync(txtDinamica, "Liberación de memoria por el recolector (GC)",
-            () => BancoDePruebas.DemostrarLiberacion(nodos)));
+        int nodes = (int)numRelease.Value;
+        await RunAsync(() => ShowTextAsync(txtDynamic, "Liberación de memoria por el recolector (GC)",
+            () => TestBench.DemonstrateRelease(nodes)));
     }
 
-    private async void btnCasoLista_Click(object? sender, EventArgs e) =>
-        await EjecutarAsync(() => MostrarTextoAsync(txtDinamica, "Caso de prueba: lista enlazada dinámica", BancoDePruebas.CasoLista));
+    private async void btnListCase_Click(object? sender, EventArgs e) =>
+        await RunAsync(() => ShowTextAsync(txtDynamic, "Caso de prueba: lista enlazada dinámica", TestBench.ListCase));
 
-    private void btnLimpiarDinamica_Click(object? sender, EventArgs e)
+    private void btnClearDynamic_Click(object? sender, EventArgs e)
     {
-        txtDinamica.Clear();
-        _lista = new ListaDinamica();    // la lista anterior queda sin referencias
+        txtDynamic.Clear();
+        _list = new DynamicList();    // the previous list is left without references
         _detachedNode = null;
         nodeCanvas.Invalidate();
     }
 
     private void arrayCanvas_Paint(object? sender, PaintEventArgs e) =>
-        ArrayDrawing.Draw(e.Graphics, arrayCanvas.ClientRectangle, _arreglo.CopiarDatos(), _arreglo.Identificador,
+        ArrayDrawing.Draw(e.Graphics, arrayCanvas.ClientRectangle, _array.CopyData(), _array.Identifier,
             _previousBlock, _previousBlockId);
 
     private void nodeCanvas_Paint(object? sender, PaintEventArgs e) =>
-        NodeDrawing.Draw(e.Graphics, nodeCanvas.ClientRectangle, _lista.DescribirNodos(MaximoNodosVisibles).ToList(),
-            _lista.Cantidad, _detachedNode);
+        NodeDrawing.Draw(e.Graphics, nodeCanvas.ClientRectangle, _list.DescribeNodes(MaxVisibleNodes).ToList(),
+            _list.Count, _detachedNode);
 
     // =====================================================================
-    // Pestaña 3: comparativa y conclusión
+    // Tab 3: comparison and conclusion
     // =====================================================================
 
-    private async void btnValidaciones_Click(object? sender, EventArgs e) =>
-        await EjecutarAsync(() => MostrarTextoAsync(txtSalida, "Validaciones", BancoDePruebas.CasoValidaciones));
+    private async void btnValidations_Click(object? sender, EventArgs e) =>
+        await RunAsync(() => ShowTextAsync(txtOutput, "Validaciones", TestBench.ValidationCases));
 
-    private async void btnComparar_Click(object? sender, EventArgs e) =>
-        await EjecutarAsync(AgregarFilaComparativaAsync);
+    private async void btnCompare_Click(object? sender, EventArgs e) =>
+        await RunAsync(AddComparisonRowAsync);
 
-    private async void btnAcceso_Click(object? sender, EventArgs e)
+    private async void btnAccess_Click(object? sender, EventArgs e)
     {
-        int lecturas = (int)numAcceso.Value;
-        await EjecutarAsync(() => MostrarTextoAsync(txtSalida, "Acceso por índice",
-            () => BancoDePruebas.MedirAcceso(lecturas)));
+        int reads = (int)numAccess.Value;
+        await RunAsync(() => ShowTextAsync(txtOutput, "Acceso por índice",
+            () => TestBench.MeasureAccess(reads)));
     }
 
-    private void btnLimpiarComparativa_Click(object? sender, EventArgs e)
+    private void btnClearComparison_Click(object? sender, EventArgs e)
     {
-        txtSalida.Clear();
-        tabla.Rows.Clear();
+        txtOutput.Clear();
+        comparisonGrid.Rows.Clear();
     }
 
     // =====================================================================
-    // Apoyo
+    // Helpers
     // =====================================================================
 
-    /// <summary>Ejecuta una acción corta mostrando cualquier error en un aviso.</summary>
-    private static void EjecutarSeguro(Action accion)
+    /// <summary>Runs a short action and shows any error in a message box.</summary>
+    private static void RunSafely(Action action)
     {
         try
         {
-            accion();
+            action();
         }
         catch (Exception ex)
         {
-            MessageBox.Show(MensajesError.ParaMostrar(ex), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show(ErrorMessages.ToDisplayText(ex), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 
-    /// <summary>Ejecuta una prueba larga sin congelar la ventana.</summary>
-    private async Task EjecutarAsync(Func<Task> prueba)
+    /// <summary>Runs a long test without freezing the window.</summary>
+    private async Task RunAsync(Func<Task> test)
     {
-        SetOcupado(true);
+        SetBusy(true);
         try
         {
-            await prueba();
+            await test();
         }
         catch (Exception ex)
         {
-            MessageBox.Show(MensajesError.ParaMostrar(ex), "Error en la prueba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(ErrorMessages.ToDisplayText(ex), "Error en la prueba", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         finally
         {
-            SetOcupado(false);
+            SetBusy(false);
         }
     }
 
-    private void SetOcupado(bool ocupado)
+    private void SetBusy(bool busy)
     {
-        UseWaitCursor = ocupado;
-        tabControl.Enabled = !ocupado;
+        UseWaitCursor = busy;
+        tabControl.Enabled = !busy;
     }
 
-    /// <summary>Corre la prueba en otro hilo y escribe sus líneas en el cuadro indicado.</summary>
-    private async Task MostrarTextoAsync(TextBox destino, string titulo, Func<List<string>> prueba)
+    /// <summary>Runs the test on another thread and writes its lines to the given text box.</summary>
+    private async Task ShowTextAsync(TextBox target, string title, Func<List<string>> test)
     {
-        List<string> lineas = await Task.Run(prueba);
-        Escribir(destino, [$"--- {titulo} ---", .. lineas]);
+        List<string> lines = await Task.Run(test);
+        AppendLines(target, [$"--- {title} ---", .. lines]);
     }
 
-    private static void Escribir(TextBox destino, params string[] lineas)
+    private static void AppendLines(TextBox target, params string[] lines)
     {
-        foreach (string linea in lineas)
-            destino.AppendText(linea + Environment.NewLine);
-        destino.AppendText(Environment.NewLine);
+        foreach (string line in lines)
+            target.AppendText(line + Environment.NewLine);
+        target.AppendText(Environment.NewLine);
     }
 
-    private async Task AgregarFilaComparativaAsync()
+    private async Task AddComparisonRowAsync()
     {
-        int n = (int)numElementos.Value;
-        FilaComparativa fila = await Task.Run(() => BancoDePruebas.Comparar(n));
-        tabla.Rows.Add(
-            fila.N.ToString("N0"),
-            fila.TiempoVectorMs.ToString("F2"),
-            fila.TiempoListaMs.ToString("F2"),
-            fila.MemoriaVectorKb.ToString("N0"),
-            fila.MemoriaListaKb.ToString("N0"),
-            fila.CopiasVector);
+        int n = (int)numElements.Value;
+        ComparisonRow row = await Task.Run(() => TestBench.Compare(n));
+        comparisonGrid.Rows.Add(
+            row.N.ToString("N0"),
+            row.VectorTimeMs.ToString("F2"),
+            row.ListTimeMs.ToString("F2"),
+            row.VectorMemoryKb.ToString("N0"),
+            row.ListMemoryKb.ToString("N0"),
+            row.VectorCopies);
 
-        if (BancoDePruebas.CompiladoEnDebug)
-            Escribir(txtSalida, "Aviso: la aplicación está compilada en Debug; para mediciones representativas ejecútala en Release.");
+        if (TestBench.IsDebugBuild)
+            AppendLines(txtOutput, "Aviso: la aplicación está compilada en Debug; para mediciones representativas ejecútala en Release.");
     }
 }

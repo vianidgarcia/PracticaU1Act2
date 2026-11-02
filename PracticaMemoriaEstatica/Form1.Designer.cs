@@ -29,73 +29,73 @@
         private void InitializeComponent()
         {
             tabControl = new TabControl();
-            tabArreglos = new TabPage();
-            txtArreglos = new TextBox();
+            tabArrays = new TabPage();
+            txtArrays = new TextBox();
             arrayCanvas = new DrawingPanel();
-            panelArreglos = new FlowLayoutPanel();
-            lblTamanoInicial = new Label();
-            numTamanoInicial = new NumericUpDown();
-            btnCrearArreglo = new Button();
-            lblTamanoNuevo = new Label();
-            numTamanoNuevo = new NumericUpDown();
-            btnRedimensionar = new Button();
-            btnArregloFijo = new Button();
-            btnCrecimiento = new Button();
-            btnLimpiarArreglos = new Button();
-            tabDinamica = new TabPage();
-            txtDinamica = new TextBox();
+            panelArrays = new FlowLayoutPanel();
+            lblInitialSize = new Label();
+            numInitialSize = new NumericUpDown();
+            btnCreateArray = new Button();
+            lblNewSize = new Label();
+            numNewSize = new NumericUpDown();
+            btnResize = new Button();
+            btnFixedArray = new Button();
+            btnGrowthCase = new Button();
+            btnClearArrays = new Button();
+            tabDynamic = new TabPage();
+            txtDynamic = new TextBox();
             nodeCanvas = new DrawingPanel();
-            panelDinamica = new FlowLayoutPanel();
-            lblNodos = new Label();
-            numNodos = new NumericUpDown();
-            btnCrearNodos = new Button();
-            btnVerReferencias = new Button();
-            btnEliminarPrimero = new Button();
-            btnValorReferencia = new Button();
-            lblLiberar = new Label();
-            numLiberar = new NumericUpDown();
-            btnLiberar = new Button();
-            btnCasoLista = new Button();
-            btnLimpiarDinamica = new Button();
-            tabComparativa = new TabPage();
-            txtSalida = new TextBox();
-            tabla = new DataGridView();
+            panelDynamic = new FlowLayoutPanel();
+            lblNodes = new Label();
+            numNodes = new NumericUpDown();
+            btnCreateNodes = new Button();
+            btnShowReferences = new Button();
+            btnRemoveFirst = new Button();
+            btnValueVsReference = new Button();
+            lblRelease = new Label();
+            numRelease = new NumericUpDown();
+            btnRelease = new Button();
+            btnListCase = new Button();
+            btnClearDynamic = new Button();
+            tabComparison = new TabPage();
+            txtOutput = new TextBox();
+            comparisonGrid = new DataGridView();
             colN = new DataGridViewTextBoxColumn();
-            colTiempoVector = new DataGridViewTextBoxColumn();
-            colTiempoLista = new DataGridViewTextBoxColumn();
-            colMemoriaVector = new DataGridViewTextBoxColumn();
-            colMemoriaLista = new DataGridViewTextBoxColumn();
-            colCopias = new DataGridViewTextBoxColumn();
-            panelComparativa = new FlowLayoutPanel();
-            btnValidaciones = new Button();
+            colVectorTime = new DataGridViewTextBoxColumn();
+            colListTime = new DataGridViewTextBoxColumn();
+            colVectorMemory = new DataGridViewTextBoxColumn();
+            colListMemory = new DataGridViewTextBoxColumn();
+            colCopies = new DataGridViewTextBoxColumn();
+            panelComparison = new FlowLayoutPanel();
+            btnValidations = new Button();
             lblN = new Label();
-            numElementos = new NumericUpDown();
-            btnComparar = new Button();
-            lblLecturas = new Label();
-            numAcceso = new NumericUpDown();
-            btnAcceso = new Button();
-            btnLimpiarComparativa = new Button();
+            numElements = new NumericUpDown();
+            btnCompare = new Button();
+            lblReads = new Label();
+            numAccess = new NumericUpDown();
+            btnAccess = new Button();
+            btnClearComparison = new Button();
             tabControl.SuspendLayout();
-            tabArreglos.SuspendLayout();
-            panelArreglos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numTamanoInicial).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numTamanoNuevo).BeginInit();
-            tabDinamica.SuspendLayout();
-            panelDinamica.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numNodos).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numLiberar).BeginInit();
-            tabComparativa.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)tabla).BeginInit();
-            panelComparativa.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numElementos).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numAcceso).BeginInit();
+            tabArrays.SuspendLayout();
+            panelArrays.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numInitialSize).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numNewSize).BeginInit();
+            tabDynamic.SuspendLayout();
+            panelDynamic.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numNodes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numRelease).BeginInit();
+            tabComparison.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)comparisonGrid).BeginInit();
+            panelComparison.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numElements).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numAccess).BeginInit();
             SuspendLayout();
             // 
             // tabControl
             // 
-            tabControl.Controls.Add(tabArreglos);
-            tabControl.Controls.Add(tabDinamica);
-            tabControl.Controls.Add(tabComparativa);
+            tabControl.Controls.Add(tabArrays);
+            tabControl.Controls.Add(tabDynamic);
+            tabControl.Controls.Add(tabComparison);
             tabControl.Dock = DockStyle.Fill;
             tabControl.Location = new Point(0, 0);
             tabControl.Margin = new Padding(3, 2, 3, 2);
@@ -104,33 +104,33 @@
             tabControl.Size = new Size(875, 480);
             tabControl.TabIndex = 0;
             // 
-            // tabArreglos
+            // tabArrays
             // 
-            tabArreglos.Controls.Add(txtArreglos);
-            tabArreglos.Controls.Add(arrayCanvas);
-            tabArreglos.Controls.Add(panelArreglos);
-            tabArreglos.Location = new Point(4, 24);
-            tabArreglos.Margin = new Padding(3, 2, 3, 2);
-            tabArreglos.Name = "tabArreglos";
-            tabArreglos.Padding = new Padding(3, 2, 3, 2);
-            tabArreglos.Size = new Size(867, 452);
-            tabArreglos.TabIndex = 0;
-            tabArreglos.Text = "Programa 1: Arreglos en tiempo de ejecución";
-            tabArreglos.UseVisualStyleBackColor = true;
+            tabArrays.Controls.Add(txtArrays);
+            tabArrays.Controls.Add(arrayCanvas);
+            tabArrays.Controls.Add(panelArrays);
+            tabArrays.Location = new Point(4, 24);
+            tabArrays.Margin = new Padding(3, 2, 3, 2);
+            tabArrays.Name = "tabArrays";
+            tabArrays.Padding = new Padding(3, 2, 3, 2);
+            tabArrays.Size = new Size(867, 452);
+            tabArrays.TabIndex = 0;
+            tabArrays.Text = "Programa 1: Arreglos en tiempo de ejecución";
+            tabArrays.UseVisualStyleBackColor = true;
             // 
-            // txtArreglos
+            // txtArrays
             // 
-            txtArreglos.BackColor = Color.White;
-            txtArreglos.Dock = DockStyle.Fill;
-            txtArreglos.Font = new Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtArreglos.Location = new Point(3, 269);
-            txtArreglos.Margin = new Padding(3, 2, 3, 2);
-            txtArreglos.Multiline = true;
-            txtArreglos.Name = "txtArreglos";
-            txtArreglos.ReadOnly = true;
-            txtArreglos.ScrollBars = ScrollBars.Vertical;
-            txtArreglos.Size = new Size(861, 181);
-            txtArreglos.TabIndex = 0;
+            txtArrays.BackColor = Color.White;
+            txtArrays.Dock = DockStyle.Fill;
+            txtArrays.Font = new Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtArrays.Location = new Point(3, 269);
+            txtArrays.Margin = new Padding(3, 2, 3, 2);
+            txtArrays.Multiline = true;
+            txtArrays.Name = "txtArrays";
+            txtArrays.ReadOnly = true;
+            txtArrays.ScrollBars = ScrollBars.Vertical;
+            txtArrays.Size = new Size(861, 181);
+            txtArrays.TabIndex = 0;
             // 
             // arrayCanvas
             // 
@@ -143,157 +143,157 @@
             arrayCanvas.TabIndex = 2;
             arrayCanvas.Paint += arrayCanvas_Paint;
             // 
-            // panelArreglos
+            // panelArrays
             // 
-            panelArreglos.AutoSize = true;
-            panelArreglos.Controls.Add(lblTamanoInicial);
-            panelArreglos.Controls.Add(numTamanoInicial);
-            panelArreglos.Controls.Add(btnCrearArreglo);
-            panelArreglos.Controls.Add(lblTamanoNuevo);
-            panelArreglos.Controls.Add(numTamanoNuevo);
-            panelArreglos.Controls.Add(btnRedimensionar);
-            panelArreglos.Controls.Add(btnArregloFijo);
-            panelArreglos.Controls.Add(btnCrecimiento);
-            panelArreglos.Controls.Add(btnLimpiarArreglos);
-            panelArreglos.Dock = DockStyle.Top;
-            panelArreglos.Location = new Point(3, 2);
-            panelArreglos.Margin = new Padding(3, 2, 3, 2);
-            panelArreglos.Name = "panelArreglos";
-            panelArreglos.Padding = new Padding(5, 4, 5, 4);
-            panelArreglos.Size = new Size(861, 66);
-            panelArreglos.TabIndex = 1;
+            panelArrays.AutoSize = true;
+            panelArrays.Controls.Add(lblInitialSize);
+            panelArrays.Controls.Add(numInitialSize);
+            panelArrays.Controls.Add(btnCreateArray);
+            panelArrays.Controls.Add(lblNewSize);
+            panelArrays.Controls.Add(numNewSize);
+            panelArrays.Controls.Add(btnResize);
+            panelArrays.Controls.Add(btnFixedArray);
+            panelArrays.Controls.Add(btnGrowthCase);
+            panelArrays.Controls.Add(btnClearArrays);
+            panelArrays.Dock = DockStyle.Top;
+            panelArrays.Location = new Point(3, 2);
+            panelArrays.Margin = new Padding(3, 2, 3, 2);
+            panelArrays.Name = "panelArrays";
+            panelArrays.Padding = new Padding(5, 4, 5, 4);
+            panelArrays.Size = new Size(861, 66);
+            panelArrays.TabIndex = 1;
             // 
-            // lblTamanoInicial
+            // lblInitialSize
             // 
-            lblTamanoInicial.AutoSize = true;
-            lblTamanoInicial.Location = new Point(15, 10);
-            lblTamanoInicial.Margin = new Padding(10, 6, 0, 0);
-            lblTamanoInicial.Name = "lblTamanoInicial";
-            lblTamanoInicial.Size = new Size(86, 15);
-            lblTamanoInicial.TabIndex = 0;
-            lblTamanoInicial.Text = "Tamaño inicial:";
+            lblInitialSize.AutoSize = true;
+            lblInitialSize.Location = new Point(15, 10);
+            lblInitialSize.Margin = new Padding(10, 6, 0, 0);
+            lblInitialSize.Name = "lblInitialSize";
+            lblInitialSize.Size = new Size(86, 15);
+            lblInitialSize.TabIndex = 0;
+            lblInitialSize.Text = "Tamaño inicial:";
             // 
-            // numTamanoInicial
+            // numInitialSize
             // 
-            numTamanoInicial.Location = new Point(104, 6);
-            numTamanoInicial.Margin = new Padding(3, 2, 3, 2);
-            numTamanoInicial.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-            numTamanoInicial.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numTamanoInicial.Name = "numTamanoInicial";
-            numTamanoInicial.Size = new Size(61, 23);
-            numTamanoInicial.TabIndex = 1;
-            numTamanoInicial.ThousandsSeparator = true;
-            numTamanoInicial.Value = new decimal(new int[] { 5, 0, 0, 0 });
+            numInitialSize.Location = new Point(104, 6);
+            numInitialSize.Margin = new Padding(3, 2, 3, 2);
+            numInitialSize.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numInitialSize.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numInitialSize.Name = "numInitialSize";
+            numInitialSize.Size = new Size(61, 23);
+            numInitialSize.TabIndex = 1;
+            numInitialSize.ThousandsSeparator = true;
+            numInitialSize.Value = new decimal(new int[] { 5, 0, 0, 0 });
             // 
-            // btnCrearArreglo
+            // btnCreateArray
             // 
-            btnCrearArreglo.AutoSize = true;
-            btnCrearArreglo.Location = new Point(171, 6);
-            btnCrearArreglo.Margin = new Padding(3, 2, 3, 2);
-            btnCrearArreglo.Name = "btnCrearArreglo";
-            btnCrearArreglo.Size = new Size(96, 25);
-            btnCrearArreglo.TabIndex = 2;
-            btnCrearArreglo.Text = "Crear arreglo";
-            btnCrearArreglo.UseVisualStyleBackColor = true;
-            btnCrearArreglo.Click += btnCrearArreglo_Click;
+            btnCreateArray.AutoSize = true;
+            btnCreateArray.Location = new Point(171, 6);
+            btnCreateArray.Margin = new Padding(3, 2, 3, 2);
+            btnCreateArray.Name = "btnCreateArray";
+            btnCreateArray.Size = new Size(96, 25);
+            btnCreateArray.TabIndex = 2;
+            btnCreateArray.Text = "Crear arreglo";
+            btnCreateArray.UseVisualStyleBackColor = true;
+            btnCreateArray.Click += btnCreateArray_Click;
             // 
-            // lblTamanoNuevo
+            // lblNewSize
             // 
-            lblTamanoNuevo.AutoSize = true;
-            lblTamanoNuevo.Location = new Point(280, 10);
-            lblTamanoNuevo.Margin = new Padding(10, 6, 0, 0);
-            lblTamanoNuevo.Name = "lblTamanoNuevo";
-            lblTamanoNuevo.Size = new Size(89, 15);
-            lblTamanoNuevo.TabIndex = 3;
-            lblTamanoNuevo.Text = "Nuevo tamaño:";
+            lblNewSize.AutoSize = true;
+            lblNewSize.Location = new Point(280, 10);
+            lblNewSize.Margin = new Padding(10, 6, 0, 0);
+            lblNewSize.Name = "lblNewSize";
+            lblNewSize.Size = new Size(89, 15);
+            lblNewSize.TabIndex = 3;
+            lblNewSize.Text = "Nuevo tamaño:";
             // 
-            // numTamanoNuevo
+            // numNewSize
             // 
-            numTamanoNuevo.Location = new Point(372, 6);
-            numTamanoNuevo.Margin = new Padding(3, 2, 3, 2);
-            numTamanoNuevo.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-            numTamanoNuevo.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numTamanoNuevo.Name = "numTamanoNuevo";
-            numTamanoNuevo.Size = new Size(61, 23);
-            numTamanoNuevo.TabIndex = 4;
-            numTamanoNuevo.ThousandsSeparator = true;
-            numTamanoNuevo.Value = new decimal(new int[] { 8, 0, 0, 0 });
+            numNewSize.Location = new Point(372, 6);
+            numNewSize.Margin = new Padding(3, 2, 3, 2);
+            numNewSize.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numNewSize.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numNewSize.Name = "numNewSize";
+            numNewSize.Size = new Size(61, 23);
+            numNewSize.TabIndex = 4;
+            numNewSize.ThousandsSeparator = true;
+            numNewSize.Value = new decimal(new int[] { 8, 0, 0, 0 });
             // 
-            // btnRedimensionar
+            // btnResize
             // 
-            btnRedimensionar.AutoSize = true;
-            btnRedimensionar.Location = new Point(439, 6);
-            btnRedimensionar.Margin = new Padding(3, 2, 3, 2);
-            btnRedimensionar.Name = "btnRedimensionar";
-            btnRedimensionar.Size = new Size(105, 25);
-            btnRedimensionar.TabIndex = 5;
-            btnRedimensionar.Text = "Redimensionar";
-            btnRedimensionar.UseVisualStyleBackColor = true;
-            btnRedimensionar.Click += btnRedimensionar_Click;
+            btnResize.AutoSize = true;
+            btnResize.Location = new Point(439, 6);
+            btnResize.Margin = new Padding(3, 2, 3, 2);
+            btnResize.Name = "btnResize";
+            btnResize.Size = new Size(105, 25);
+            btnResize.TabIndex = 5;
+            btnResize.Text = "Redimensionar";
+            btnResize.UseVisualStyleBackColor = true;
+            btnResize.Click += btnResize_Click;
             // 
-            // btnArregloFijo
+            // btnFixedArray
             // 
-            btnArregloFijo.AutoSize = true;
-            btnArregloFijo.Location = new Point(550, 6);
-            btnArregloFijo.Margin = new Padding(3, 2, 3, 2);
-            btnArregloFijo.Name = "btnArregloFijo";
-            btnArregloFijo.Size = new Size(228, 25);
-            btnArregloFijo.TabIndex = 6;
-            btnArregloFijo.Text = "Memoria estática: arreglo fijo en pila";
-            btnArregloFijo.UseVisualStyleBackColor = true;
-            btnArregloFijo.Click += btnArregloFijo_Click;
+            btnFixedArray.AutoSize = true;
+            btnFixedArray.Location = new Point(550, 6);
+            btnFixedArray.Margin = new Padding(3, 2, 3, 2);
+            btnFixedArray.Name = "btnFixedArray";
+            btnFixedArray.Size = new Size(228, 25);
+            btnFixedArray.TabIndex = 6;
+            btnFixedArray.Text = "Memoria estática: arreglo fijo en pila";
+            btnFixedArray.UseVisualStyleBackColor = true;
+            btnFixedArray.Click += btnFixedArray_Click;
             // 
-            // btnCrecimiento
+            // btnGrowthCase
             // 
-            btnCrecimiento.AutoSize = true;
-            btnCrecimiento.Location = new Point(8, 35);
-            btnCrecimiento.Margin = new Padding(3, 2, 3, 2);
-            btnCrecimiento.Name = "btnCrecimiento";
-            btnCrecimiento.Size = new Size(245, 25);
-            btnCrecimiento.TabIndex = 7;
-            btnCrecimiento.Text = "Caso de prueba: crecimiento automático";
-            btnCrecimiento.UseVisualStyleBackColor = true;
-            btnCrecimiento.Click += btnCrecimiento_Click;
+            btnGrowthCase.AutoSize = true;
+            btnGrowthCase.Location = new Point(8, 35);
+            btnGrowthCase.Margin = new Padding(3, 2, 3, 2);
+            btnGrowthCase.Name = "btnGrowthCase";
+            btnGrowthCase.Size = new Size(245, 25);
+            btnGrowthCase.TabIndex = 7;
+            btnGrowthCase.Text = "Caso de prueba: crecimiento automático";
+            btnGrowthCase.UseVisualStyleBackColor = true;
+            btnGrowthCase.Click += btnGrowthCase_Click;
             // 
-            // btnLimpiarArreglos
+            // btnClearArrays
             // 
-            btnLimpiarArreglos.AutoSize = true;
-            btnLimpiarArreglos.Location = new Point(259, 35);
-            btnLimpiarArreglos.Margin = new Padding(3, 2, 3, 2);
-            btnLimpiarArreglos.Name = "btnLimpiarArreglos";
-            btnLimpiarArreglos.Size = new Size(66, 25);
-            btnLimpiarArreglos.TabIndex = 8;
-            btnLimpiarArreglos.Text = "Limpiar";
-            btnLimpiarArreglos.UseVisualStyleBackColor = true;
-            btnLimpiarArreglos.Click += btnLimpiarArreglos_Click;
+            btnClearArrays.AutoSize = true;
+            btnClearArrays.Location = new Point(259, 35);
+            btnClearArrays.Margin = new Padding(3, 2, 3, 2);
+            btnClearArrays.Name = "btnClearArrays";
+            btnClearArrays.Size = new Size(66, 25);
+            btnClearArrays.TabIndex = 8;
+            btnClearArrays.Text = "Limpiar";
+            btnClearArrays.UseVisualStyleBackColor = true;
+            btnClearArrays.Click += btnClearArrays_Click;
             // 
-            // tabDinamica
+            // tabDynamic
             // 
-            tabDinamica.Controls.Add(txtDinamica);
-            tabDinamica.Controls.Add(nodeCanvas);
-            tabDinamica.Controls.Add(panelDinamica);
-            tabDinamica.Location = new Point(4, 24);
-            tabDinamica.Margin = new Padding(3, 2, 3, 2);
-            tabDinamica.Name = "tabDinamica";
-            tabDinamica.Padding = new Padding(3, 2, 3, 2);
-            tabDinamica.Size = new Size(867, 452);
-            tabDinamica.TabIndex = 1;
-            tabDinamica.Text = "Programa 2: Memoria dinámica (Heap)";
-            tabDinamica.UseVisualStyleBackColor = true;
+            tabDynamic.Controls.Add(txtDynamic);
+            tabDynamic.Controls.Add(nodeCanvas);
+            tabDynamic.Controls.Add(panelDynamic);
+            tabDynamic.Location = new Point(4, 24);
+            tabDynamic.Margin = new Padding(3, 2, 3, 2);
+            tabDynamic.Name = "tabDynamic";
+            tabDynamic.Padding = new Padding(3, 2, 3, 2);
+            tabDynamic.Size = new Size(867, 452);
+            tabDynamic.TabIndex = 1;
+            tabDynamic.Text = "Programa 2: Memoria dinámica (Heap)";
+            tabDynamic.UseVisualStyleBackColor = true;
             // 
-            // txtDinamica
+            // txtDynamic
             // 
-            txtDinamica.BackColor = Color.White;
-            txtDinamica.Dock = DockStyle.Fill;
-            txtDinamica.Font = new Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtDinamica.Location = new Point(3, 278);
-            txtDinamica.Margin = new Padding(3, 2, 3, 2);
-            txtDinamica.Multiline = true;
-            txtDinamica.Name = "txtDinamica";
-            txtDinamica.ReadOnly = true;
-            txtDinamica.ScrollBars = ScrollBars.Vertical;
-            txtDinamica.Size = new Size(861, 172);
-            txtDinamica.TabIndex = 0;
+            txtDynamic.BackColor = Color.White;
+            txtDynamic.Dock = DockStyle.Fill;
+            txtDynamic.Font = new Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtDynamic.Location = new Point(3, 278);
+            txtDynamic.Margin = new Padding(3, 2, 3, 2);
+            txtDynamic.Multiline = true;
+            txtDynamic.Name = "txtDynamic";
+            txtDynamic.ReadOnly = true;
+            txtDynamic.ScrollBars = ScrollBars.Vertical;
+            txtDynamic.Size = new Size(861, 172);
+            txtDynamic.TabIndex = 0;
             // 
             // nodeCanvas
             // 
@@ -306,201 +306,201 @@
             nodeCanvas.TabIndex = 2;
             nodeCanvas.Paint += nodeCanvas_Paint;
             // 
-            // panelDinamica
+            // panelDynamic
             // 
-            panelDinamica.AutoSize = true;
-            panelDinamica.Controls.Add(lblNodos);
-            panelDinamica.Controls.Add(numNodos);
-            panelDinamica.Controls.Add(btnCrearNodos);
-            panelDinamica.Controls.Add(btnVerReferencias);
-            panelDinamica.Controls.Add(btnEliminarPrimero);
-            panelDinamica.Controls.Add(btnValorReferencia);
-            panelDinamica.Controls.Add(lblLiberar);
-            panelDinamica.Controls.Add(numLiberar);
-            panelDinamica.Controls.Add(btnLiberar);
-            panelDinamica.Controls.Add(btnCasoLista);
-            panelDinamica.Controls.Add(btnLimpiarDinamica);
-            panelDinamica.Dock = DockStyle.Top;
-            panelDinamica.Location = new Point(3, 2);
-            panelDinamica.Margin = new Padding(3, 2, 3, 2);
-            panelDinamica.Name = "panelDinamica";
-            panelDinamica.Padding = new Padding(5, 4, 5, 4);
-            panelDinamica.Size = new Size(861, 66);
-            panelDinamica.TabIndex = 1;
+            panelDynamic.AutoSize = true;
+            panelDynamic.Controls.Add(lblNodes);
+            panelDynamic.Controls.Add(numNodes);
+            panelDynamic.Controls.Add(btnCreateNodes);
+            panelDynamic.Controls.Add(btnShowReferences);
+            panelDynamic.Controls.Add(btnRemoveFirst);
+            panelDynamic.Controls.Add(btnValueVsReference);
+            panelDynamic.Controls.Add(lblRelease);
+            panelDynamic.Controls.Add(numRelease);
+            panelDynamic.Controls.Add(btnRelease);
+            panelDynamic.Controls.Add(btnListCase);
+            panelDynamic.Controls.Add(btnClearDynamic);
+            panelDynamic.Dock = DockStyle.Top;
+            panelDynamic.Location = new Point(3, 2);
+            panelDynamic.Margin = new Padding(3, 2, 3, 2);
+            panelDynamic.Name = "panelDynamic";
+            panelDynamic.Padding = new Padding(5, 4, 5, 4);
+            panelDynamic.Size = new Size(861, 66);
+            panelDynamic.TabIndex = 1;
             // 
-            // lblNodos
+            // lblNodes
             // 
-            lblNodos.AutoSize = true;
-            lblNodos.Location = new Point(15, 10);
-            lblNodos.Margin = new Padding(10, 6, 0, 0);
-            lblNodos.Name = "lblNodos";
-            lblNodos.Size = new Size(83, 15);
-            lblNodos.TabIndex = 0;
-            lblNodos.Text = "Nodos a crear:";
+            lblNodes.AutoSize = true;
+            lblNodes.Location = new Point(15, 10);
+            lblNodes.Margin = new Padding(10, 6, 0, 0);
+            lblNodes.Name = "lblNodes";
+            lblNodes.Size = new Size(83, 15);
+            lblNodes.TabIndex = 0;
+            lblNodes.Text = "Nodos a crear:";
             // 
-            // numNodos
+            // numNodes
             // 
-            numNodos.Location = new Point(101, 6);
-            numNodos.Margin = new Padding(3, 2, 3, 2);
-            numNodos.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-            numNodos.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numNodos.Name = "numNodos";
-            numNodos.Size = new Size(61, 23);
-            numNodos.TabIndex = 1;
-            numNodos.ThousandsSeparator = true;
-            numNodos.Value = new decimal(new int[] { 5, 0, 0, 0 });
+            numNodes.Location = new Point(101, 6);
+            numNodes.Margin = new Padding(3, 2, 3, 2);
+            numNodes.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numNodes.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numNodes.Name = "numNodes";
+            numNodes.Size = new Size(61, 23);
+            numNodes.TabIndex = 1;
+            numNodes.ThousandsSeparator = true;
+            numNodes.Value = new decimal(new int[] { 5, 0, 0, 0 });
             // 
-            // btnCrearNodos
+            // btnCreateNodes
             // 
-            btnCrearNodos.AutoSize = true;
-            btnCrearNodos.Location = new Point(168, 6);
-            btnCrearNodos.Margin = new Padding(3, 2, 3, 2);
-            btnCrearNodos.Name = "btnCrearNodos";
-            btnCrearNodos.Size = new Size(122, 25);
-            btnCrearNodos.TabIndex = 2;
-            btnCrearNodos.Text = "Crear nodos (new)";
-            btnCrearNodos.UseVisualStyleBackColor = true;
-            btnCrearNodos.Click += btnCrearNodos_Click;
+            btnCreateNodes.AutoSize = true;
+            btnCreateNodes.Location = new Point(168, 6);
+            btnCreateNodes.Margin = new Padding(3, 2, 3, 2);
+            btnCreateNodes.Name = "btnCreateNodes";
+            btnCreateNodes.Size = new Size(122, 25);
+            btnCreateNodes.TabIndex = 2;
+            btnCreateNodes.Text = "Crear nodos (new)";
+            btnCreateNodes.UseVisualStyleBackColor = true;
+            btnCreateNodes.Click += btnCreateNodes_Click;
             // 
-            // btnVerReferencias
+            // btnShowReferences
             // 
-            btnVerReferencias.AutoSize = true;
-            btnVerReferencias.Location = new Point(296, 6);
-            btnVerReferencias.Margin = new Padding(3, 2, 3, 2);
-            btnVerReferencias.Name = "btnVerReferencias";
-            btnVerReferencias.Size = new Size(114, 25);
-            btnVerReferencias.TabIndex = 3;
-            btnVerReferencias.Text = "Ver referencias";
-            btnVerReferencias.UseVisualStyleBackColor = true;
-            btnVerReferencias.Click += btnVerReferencias_Click;
+            btnShowReferences.AutoSize = true;
+            btnShowReferences.Location = new Point(296, 6);
+            btnShowReferences.Margin = new Padding(3, 2, 3, 2);
+            btnShowReferences.Name = "btnShowReferences";
+            btnShowReferences.Size = new Size(114, 25);
+            btnShowReferences.TabIndex = 3;
+            btnShowReferences.Text = "Ver referencias";
+            btnShowReferences.UseVisualStyleBackColor = true;
+            btnShowReferences.Click += btnShowReferences_Click;
             // 
-            // btnEliminarPrimero
+            // btnRemoveFirst
             // 
-            btnEliminarPrimero.AutoSize = true;
-            btnEliminarPrimero.Location = new Point(416, 6);
-            btnEliminarPrimero.Margin = new Padding(3, 2, 3, 2);
-            btnEliminarPrimero.Name = "btnEliminarPrimero";
-            btnEliminarPrimero.Size = new Size(114, 25);
-            btnEliminarPrimero.TabIndex = 4;
-            btnEliminarPrimero.Text = "Eliminar primero";
-            btnEliminarPrimero.UseVisualStyleBackColor = true;
-            btnEliminarPrimero.Click += btnEliminarPrimero_Click;
+            btnRemoveFirst.AutoSize = true;
+            btnRemoveFirst.Location = new Point(416, 6);
+            btnRemoveFirst.Margin = new Padding(3, 2, 3, 2);
+            btnRemoveFirst.Name = "btnRemoveFirst";
+            btnRemoveFirst.Size = new Size(114, 25);
+            btnRemoveFirst.TabIndex = 4;
+            btnRemoveFirst.Text = "Eliminar primero";
+            btnRemoveFirst.UseVisualStyleBackColor = true;
+            btnRemoveFirst.Click += btnRemoveFirst_Click;
             // 
-            // btnValorReferencia
+            // btnValueVsReference
             // 
-            btnValorReferencia.AutoSize = true;
-            btnValorReferencia.Location = new Point(536, 6);
-            btnValorReferencia.Margin = new Padding(3, 2, 3, 2);
-            btnValorReferencia.Name = "btnValorReferencia";
-            btnValorReferencia.Size = new Size(131, 25);
-            btnValorReferencia.TabIndex = 5;
-            btnValorReferencia.Text = "Valor vs. referencia";
-            btnValorReferencia.UseVisualStyleBackColor = true;
-            btnValorReferencia.Click += btnValorReferencia_Click;
+            btnValueVsReference.AutoSize = true;
+            btnValueVsReference.Location = new Point(536, 6);
+            btnValueVsReference.Margin = new Padding(3, 2, 3, 2);
+            btnValueVsReference.Name = "btnValueVsReference";
+            btnValueVsReference.Size = new Size(131, 25);
+            btnValueVsReference.TabIndex = 5;
+            btnValueVsReference.Text = "Valor vs. referencia";
+            btnValueVsReference.UseVisualStyleBackColor = true;
+            btnValueVsReference.Click += btnValueVsReference_Click;
             // 
-            // lblLiberar
+            // lblRelease
             // 
-            lblLiberar.AutoSize = true;
-            lblLiberar.Location = new Point(680, 10);
-            lblLiberar.Margin = new Padding(10, 6, 0, 0);
-            lblLiberar.Name = "lblLiberar";
-            lblLiberar.Size = new Size(107, 15);
-            lblLiberar.TabIndex = 6;
-            lblLiberar.Text = "Nodos para liberar:";
+            lblRelease.AutoSize = true;
+            lblRelease.Location = new Point(680, 10);
+            lblRelease.Margin = new Padding(10, 6, 0, 0);
+            lblRelease.Name = "lblRelease";
+            lblRelease.Size = new Size(107, 15);
+            lblRelease.TabIndex = 6;
+            lblRelease.Text = "Nodos para liberar:";
             // 
-            // numLiberar
+            // numRelease
             // 
-            numLiberar.Increment = new decimal(new int[] { 10000, 0, 0, 0 });
-            numLiberar.Location = new Point(8, 35);
-            numLiberar.Margin = new Padding(3, 2, 3, 2);
-            numLiberar.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
-            numLiberar.Minimum = new decimal(new int[] { 1000, 0, 0, 0 });
-            numLiberar.Name = "numLiberar";
-            numLiberar.Size = new Size(79, 23);
-            numLiberar.TabIndex = 7;
-            numLiberar.ThousandsSeparator = true;
-            numLiberar.Value = new decimal(new int[] { 100000, 0, 0, 0 });
+            numRelease.Increment = new decimal(new int[] { 10000, 0, 0, 0 });
+            numRelease.Location = new Point(8, 35);
+            numRelease.Margin = new Padding(3, 2, 3, 2);
+            numRelease.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
+            numRelease.Minimum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numRelease.Name = "numRelease";
+            numRelease.Size = new Size(79, 23);
+            numRelease.TabIndex = 7;
+            numRelease.ThousandsSeparator = true;
+            numRelease.Value = new decimal(new int[] { 100000, 0, 0, 0 });
             // 
-            // btnLiberar
+            // btnRelease
             // 
-            btnLiberar.AutoSize = true;
-            btnLiberar.Location = new Point(93, 35);
-            btnLiberar.Margin = new Padding(3, 2, 3, 2);
-            btnLiberar.Name = "btnLiberar";
-            btnLiberar.Size = new Size(166, 25);
-            btnLiberar.TabIndex = 8;
-            btnLiberar.Text = "Liberar y recolectar (GC)";
-            btnLiberar.UseVisualStyleBackColor = true;
-            btnLiberar.Click += btnLiberar_Click;
+            btnRelease.AutoSize = true;
+            btnRelease.Location = new Point(93, 35);
+            btnRelease.Margin = new Padding(3, 2, 3, 2);
+            btnRelease.Name = "btnRelease";
+            btnRelease.Size = new Size(166, 25);
+            btnRelease.TabIndex = 8;
+            btnRelease.Text = "Liberar y recolectar (GC)";
+            btnRelease.UseVisualStyleBackColor = true;
+            btnRelease.Click += btnRelease_Click;
             // 
-            // btnCasoLista
+            // btnListCase
             // 
-            btnCasoLista.AutoSize = true;
-            btnCasoLista.Location = new Point(265, 35);
-            btnCasoLista.Margin = new Padding(3, 2, 3, 2);
-            btnCasoLista.Name = "btnCasoLista";
-            btnCasoLista.Size = new Size(105, 25);
-            btnCasoLista.TabIndex = 9;
-            btnCasoLista.Text = "Caso de prueba";
-            btnCasoLista.UseVisualStyleBackColor = true;
-            btnCasoLista.Click += btnCasoLista_Click;
+            btnListCase.AutoSize = true;
+            btnListCase.Location = new Point(265, 35);
+            btnListCase.Margin = new Padding(3, 2, 3, 2);
+            btnListCase.Name = "btnListCase";
+            btnListCase.Size = new Size(105, 25);
+            btnListCase.TabIndex = 9;
+            btnListCase.Text = "Caso de prueba";
+            btnListCase.UseVisualStyleBackColor = true;
+            btnListCase.Click += btnListCase_Click;
             // 
-            // btnLimpiarDinamica
+            // btnClearDynamic
             // 
-            btnLimpiarDinamica.AutoSize = true;
-            btnLimpiarDinamica.Location = new Point(376, 35);
-            btnLimpiarDinamica.Margin = new Padding(3, 2, 3, 2);
-            btnLimpiarDinamica.Name = "btnLimpiarDinamica";
-            btnLimpiarDinamica.Size = new Size(66, 25);
-            btnLimpiarDinamica.TabIndex = 10;
-            btnLimpiarDinamica.Text = "Limpiar";
-            btnLimpiarDinamica.UseVisualStyleBackColor = true;
-            btnLimpiarDinamica.Click += btnLimpiarDinamica_Click;
+            btnClearDynamic.AutoSize = true;
+            btnClearDynamic.Location = new Point(376, 35);
+            btnClearDynamic.Margin = new Padding(3, 2, 3, 2);
+            btnClearDynamic.Name = "btnClearDynamic";
+            btnClearDynamic.Size = new Size(66, 25);
+            btnClearDynamic.TabIndex = 10;
+            btnClearDynamic.Text = "Limpiar";
+            btnClearDynamic.UseVisualStyleBackColor = true;
+            btnClearDynamic.Click += btnClearDynamic_Click;
             // 
-            // tabComparativa
+            // tabComparison
             // 
-            tabComparativa.Controls.Add(txtSalida);
-            tabComparativa.Controls.Add(tabla);
-            tabComparativa.Controls.Add(panelComparativa);
-            tabComparativa.Location = new Point(4, 24);
-            tabComparativa.Margin = new Padding(3, 2, 3, 2);
-            tabComparativa.Name = "tabComparativa";
-            tabComparativa.Padding = new Padding(3, 2, 3, 2);
-            tabComparativa.Size = new Size(867, 452);
-            tabComparativa.TabIndex = 2;
-            tabComparativa.Text = "Comparativa y conclusión";
-            tabComparativa.UseVisualStyleBackColor = true;
+            tabComparison.Controls.Add(txtOutput);
+            tabComparison.Controls.Add(comparisonGrid);
+            tabComparison.Controls.Add(panelComparison);
+            tabComparison.Location = new Point(4, 24);
+            tabComparison.Margin = new Padding(3, 2, 3, 2);
+            tabComparison.Name = "tabComparison";
+            tabComparison.Padding = new Padding(3, 2, 3, 2);
+            tabComparison.Size = new Size(867, 452);
+            tabComparison.TabIndex = 2;
+            tabComparison.Text = "Comparativa y conclusión";
+            tabComparison.UseVisualStyleBackColor = true;
             // 
-            // txtSalida
+            // txtOutput
             // 
-            txtSalida.BackColor = Color.White;
-            txtSalida.Dock = DockStyle.Fill;
-            txtSalida.Font = new Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSalida.Location = new Point(3, 39);
-            txtSalida.Margin = new Padding(3, 2, 3, 2);
-            txtSalida.Multiline = true;
-            txtSalida.Name = "txtSalida";
-            txtSalida.ReadOnly = true;
-            txtSalida.ScrollBars = ScrollBars.Vertical;
-            txtSalida.Size = new Size(861, 283);
-            txtSalida.TabIndex = 0;
+            txtOutput.BackColor = Color.White;
+            txtOutput.Dock = DockStyle.Fill;
+            txtOutput.Font = new Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtOutput.Location = new Point(3, 39);
+            txtOutput.Margin = new Padding(3, 2, 3, 2);
+            txtOutput.Multiline = true;
+            txtOutput.Name = "txtOutput";
+            txtOutput.ReadOnly = true;
+            txtOutput.ScrollBars = ScrollBars.Vertical;
+            txtOutput.Size = new Size(861, 283);
+            txtOutput.TabIndex = 0;
             // 
-            // tabla
+            // comparisonGrid
             // 
-            tabla.AllowUserToAddRows = false;
-            tabla.AllowUserToDeleteRows = false;
-            tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            tabla.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tabla.Columns.AddRange(new DataGridViewColumn[] { colN, colTiempoVector, colTiempoLista, colMemoriaVector, colMemoriaLista, colCopias });
-            tabla.Dock = DockStyle.Bottom;
-            tabla.Location = new Point(3, 322);
-            tabla.Margin = new Padding(3, 2, 3, 2);
-            tabla.Name = "tabla";
-            tabla.ReadOnly = true;
-            tabla.RowHeadersVisible = false;
-            tabla.RowHeadersWidth = 51;
-            tabla.Size = new Size(861, 128);
-            tabla.TabIndex = 1;
+            comparisonGrid.AllowUserToAddRows = false;
+            comparisonGrid.AllowUserToDeleteRows = false;
+            comparisonGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            comparisonGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            comparisonGrid.Columns.AddRange(new DataGridViewColumn[] { colN, colVectorTime, colListTime, colVectorMemory, colListMemory, colCopies });
+            comparisonGrid.Dock = DockStyle.Bottom;
+            comparisonGrid.Location = new Point(3, 322);
+            comparisonGrid.Margin = new Padding(3, 2, 3, 2);
+            comparisonGrid.Name = "comparisonGrid";
+            comparisonGrid.ReadOnly = true;
+            comparisonGrid.RowHeadersVisible = false;
+            comparisonGrid.RowHeadersWidth = 51;
+            comparisonGrid.Size = new Size(861, 128);
+            comparisonGrid.TabIndex = 1;
             // 
             // colN
             // 
@@ -509,71 +509,71 @@
             colN.Name = "colN";
             colN.ReadOnly = true;
             // 
-            // colTiempoVector
+            // colVectorTime
             // 
-            colTiempoVector.HeaderText = "Inserción vector (ms, mediana)";
-            colTiempoVector.MinimumWidth = 6;
-            colTiempoVector.Name = "colTiempoVector";
-            colTiempoVector.ReadOnly = true;
+            colVectorTime.HeaderText = "Inserción vector (ms, mediana)";
+            colVectorTime.MinimumWidth = 6;
+            colVectorTime.Name = "colVectorTime";
+            colVectorTime.ReadOnly = true;
             // 
-            // colTiempoLista
+            // colListTime
             // 
-            colTiempoLista.HeaderText = "Inserción lista (ms, mediana)";
-            colTiempoLista.MinimumWidth = 6;
-            colTiempoLista.Name = "colTiempoLista";
-            colTiempoLista.ReadOnly = true;
+            colListTime.HeaderText = "Inserción lista (ms, mediana)";
+            colListTime.MinimumWidth = 6;
+            colListTime.Name = "colListTime";
+            colListTime.ReadOnly = true;
             // 
-            // colMemoriaVector
+            // colVectorMemory
             // 
-            colMemoriaVector.HeaderText = "Memoria vector (KB)";
-            colMemoriaVector.MinimumWidth = 6;
-            colMemoriaVector.Name = "colMemoriaVector";
-            colMemoriaVector.ReadOnly = true;
+            colVectorMemory.HeaderText = "Memoria vector (KB)";
+            colVectorMemory.MinimumWidth = 6;
+            colVectorMemory.Name = "colVectorMemory";
+            colVectorMemory.ReadOnly = true;
             // 
-            // colMemoriaLista
+            // colListMemory
             // 
-            colMemoriaLista.HeaderText = "Memoria lista (KB)";
-            colMemoriaLista.MinimumWidth = 6;
-            colMemoriaLista.Name = "colMemoriaLista";
-            colMemoriaLista.ReadOnly = true;
+            colListMemory.HeaderText = "Memoria lista (KB)";
+            colListMemory.MinimumWidth = 6;
+            colListMemory.Name = "colListMemory";
+            colListMemory.ReadOnly = true;
             // 
-            // colCopias
+            // colCopies
             // 
-            colCopias.HeaderText = "Copias del vector";
-            colCopias.MinimumWidth = 6;
-            colCopias.Name = "colCopias";
-            colCopias.ReadOnly = true;
+            colCopies.HeaderText = "Copias del vector";
+            colCopies.MinimumWidth = 6;
+            colCopies.Name = "colCopies";
+            colCopies.ReadOnly = true;
             // 
-            // panelComparativa
+            // panelComparison
             // 
-            panelComparativa.AutoSize = true;
-            panelComparativa.Controls.Add(btnValidaciones);
-            panelComparativa.Controls.Add(lblN);
-            panelComparativa.Controls.Add(numElementos);
-            panelComparativa.Controls.Add(btnComparar);
-            panelComparativa.Controls.Add(lblLecturas);
-            panelComparativa.Controls.Add(numAcceso);
-            panelComparativa.Controls.Add(btnAcceso);
-            panelComparativa.Controls.Add(btnLimpiarComparativa);
-            panelComparativa.Dock = DockStyle.Top;
-            panelComparativa.Location = new Point(3, 2);
-            panelComparativa.Margin = new Padding(3, 2, 3, 2);
-            panelComparativa.Name = "panelComparativa";
-            panelComparativa.Padding = new Padding(5, 4, 5, 4);
-            panelComparativa.Size = new Size(861, 37);
-            panelComparativa.TabIndex = 2;
+            panelComparison.AutoSize = true;
+            panelComparison.Controls.Add(btnValidations);
+            panelComparison.Controls.Add(lblN);
+            panelComparison.Controls.Add(numElements);
+            panelComparison.Controls.Add(btnCompare);
+            panelComparison.Controls.Add(lblReads);
+            panelComparison.Controls.Add(numAccess);
+            panelComparison.Controls.Add(btnAccess);
+            panelComparison.Controls.Add(btnClearComparison);
+            panelComparison.Dock = DockStyle.Top;
+            panelComparison.Location = new Point(3, 2);
+            panelComparison.Margin = new Padding(3, 2, 3, 2);
+            panelComparison.Name = "panelComparison";
+            panelComparison.Padding = new Padding(5, 4, 5, 4);
+            panelComparison.Size = new Size(861, 37);
+            panelComparison.TabIndex = 2;
             // 
-            // btnValidaciones
+            // btnValidations
             // 
-            btnValidaciones.AutoSize = true;
-            btnValidaciones.Location = new Point(8, 6);
-            btnValidaciones.Margin = new Padding(3, 2, 3, 2);
-            btnValidaciones.Name = "btnValidaciones";
-            btnValidaciones.Size = new Size(96, 25);
-            btnValidaciones.TabIndex = 0;
-            btnValidaciones.Text = "Validaciones";
-            btnValidaciones.UseVisualStyleBackColor = true;
-            btnValidaciones.Click += btnValidaciones_Click;
+            btnValidations.AutoSize = true;
+            btnValidations.Location = new Point(8, 6);
+            btnValidations.Margin = new Padding(3, 2, 3, 2);
+            btnValidations.Name = "btnValidations";
+            btnValidations.Size = new Size(96, 25);
+            btnValidations.TabIndex = 0;
+            btnValidations.Text = "Validaciones";
+            btnValidations.UseVisualStyleBackColor = true;
+            btnValidations.Click += btnValidations_Click;
             // 
             // lblN
             // 
@@ -585,77 +585,77 @@
             lblN.TabIndex = 1;
             lblN.Text = "N:";
             // 
-            // numElementos
+            // numElements
             // 
-            numElementos.Increment = new decimal(new int[] { 10000, 0, 0, 0 });
-            numElementos.Location = new Point(139, 6);
-            numElementos.Margin = new Padding(3, 2, 3, 2);
-            numElementos.Maximum = new decimal(new int[] { 2000000, 0, 0, 0 });
-            numElementos.Minimum = new decimal(new int[] { 1000, 0, 0, 0 });
-            numElementos.Name = "numElementos";
-            numElementos.Size = new Size(79, 23);
-            numElementos.TabIndex = 2;
-            numElementos.ThousandsSeparator = true;
-            numElementos.Value = new decimal(new int[] { 100000, 0, 0, 0 });
+            numElements.Increment = new decimal(new int[] { 10000, 0, 0, 0 });
+            numElements.Location = new Point(139, 6);
+            numElements.Margin = new Padding(3, 2, 3, 2);
+            numElements.Maximum = new decimal(new int[] { 2000000, 0, 0, 0 });
+            numElements.Minimum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numElements.Name = "numElements";
+            numElements.Size = new Size(79, 23);
+            numElements.TabIndex = 2;
+            numElements.ThousandsSeparator = true;
+            numElements.Value = new decimal(new int[] { 100000, 0, 0, 0 });
             // 
-            // btnComparar
+            // btnCompare
             // 
-            btnComparar.AutoSize = true;
-            btnComparar.Location = new Point(224, 6);
-            btnComparar.Margin = new Padding(3, 2, 3, 2);
-            btnComparar.Name = "btnComparar";
-            btnComparar.Size = new Size(192, 25);
-            btnComparar.TabIndex = 3;
-            btnComparar.Text = "Comparar inserción y memoria";
-            btnComparar.UseVisualStyleBackColor = true;
-            btnComparar.Click += btnComparar_Click;
+            btnCompare.AutoSize = true;
+            btnCompare.Location = new Point(224, 6);
+            btnCompare.Margin = new Padding(3, 2, 3, 2);
+            btnCompare.Name = "btnCompare";
+            btnCompare.Size = new Size(192, 25);
+            btnCompare.TabIndex = 3;
+            btnCompare.Text = "Comparar inserción y memoria";
+            btnCompare.UseVisualStyleBackColor = true;
+            btnCompare.Click += btnCompare_Click;
             // 
-            // lblLecturas
+            // lblReads
             // 
-            lblLecturas.AutoSize = true;
-            lblLecturas.Location = new Point(429, 10);
-            lblLecturas.Margin = new Padding(10, 6, 0, 0);
-            lblLecturas.Name = "lblLecturas";
-            lblLecturas.Size = new Size(54, 15);
-            lblLecturas.TabIndex = 4;
-            lblLecturas.Text = "Lecturas:";
+            lblReads.AutoSize = true;
+            lblReads.Location = new Point(429, 10);
+            lblReads.Margin = new Padding(10, 6, 0, 0);
+            lblReads.Name = "lblReads";
+            lblReads.Size = new Size(54, 15);
+            lblReads.TabIndex = 4;
+            lblReads.Text = "Lecturas:";
             // 
-            // numAcceso
+            // numAccess
             // 
-            numAcceso.Increment = new decimal(new int[] { 1000, 0, 0, 0 });
-            numAcceso.Location = new Point(486, 6);
-            numAcceso.Margin = new Padding(3, 2, 3, 2);
-            numAcceso.Maximum = new decimal(new int[] { 50000, 0, 0, 0 });
-            numAcceso.Minimum = new decimal(new int[] { 1000, 0, 0, 0 });
-            numAcceso.Name = "numAcceso";
-            numAcceso.Size = new Size(70, 23);
-            numAcceso.TabIndex = 5;
-            numAcceso.ThousandsSeparator = true;
-            numAcceso.Value = new decimal(new int[] { 20000, 0, 0, 0 });
+            numAccess.Increment = new decimal(new int[] { 1000, 0, 0, 0 });
+            numAccess.Location = new Point(486, 6);
+            numAccess.Margin = new Padding(3, 2, 3, 2);
+            numAccess.Maximum = new decimal(new int[] { 50000, 0, 0, 0 });
+            numAccess.Minimum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numAccess.Name = "numAccess";
+            numAccess.Size = new Size(70, 23);
+            numAccess.TabIndex = 5;
+            numAccess.ThousandsSeparator = true;
+            numAccess.Value = new decimal(new int[] { 20000, 0, 0, 0 });
             // 
-            // btnAcceso
+            // btnAccess
             // 
-            btnAcceso.AutoSize = true;
-            btnAcceso.Location = new Point(562, 6);
-            btnAcceso.Margin = new Padding(3, 2, 3, 2);
-            btnAcceso.Name = "btnAcceso";
-            btnAcceso.Size = new Size(122, 25);
-            btnAcceso.TabIndex = 6;
-            btnAcceso.Text = "Acceso por índice";
-            btnAcceso.UseVisualStyleBackColor = true;
-            btnAcceso.Click += btnAcceso_Click;
+            btnAccess.AutoSize = true;
+            btnAccess.Location = new Point(562, 6);
+            btnAccess.Margin = new Padding(3, 2, 3, 2);
+            btnAccess.Name = "btnAccess";
+            btnAccess.Size = new Size(122, 25);
+            btnAccess.TabIndex = 6;
+            btnAccess.Text = "Acceso por índice";
+            btnAccess.UseVisualStyleBackColor = true;
+            btnAccess.Click += btnAccess_Click;
             // 
-            // btnLimpiarComparativa
+            // btnClearComparison
             // 
-            btnLimpiarComparativa.AutoSize = true;
-            btnLimpiarComparativa.Location = new Point(690, 6);
-            btnLimpiarComparativa.Margin = new Padding(3, 2, 3, 2);
-            btnLimpiarComparativa.Name = "btnLimpiarComparativa";
-            btnLimpiarComparativa.Size = new Size(66, 25);
-            btnLimpiarComparativa.TabIndex = 7;
-            btnLimpiarComparativa.Text = "Limpiar";
-            btnLimpiarComparativa.UseVisualStyleBackColor = true;
-            btnLimpiarComparativa.Click += btnLimpiarComparativa_Click;
+            btnClearComparison.AutoSize = true;
+            btnClearComparison.Location = new Point(690, 6);
+            btnClearComparison.Margin = new Padding(3, 2, 3, 2);
+            btnClearComparison.Name = "btnClearComparison";
+            btnClearComparison.Size = new Size(66, 25);
+            btnClearComparison.TabIndex = 7;
+            btnClearComparison.Text = "Limpiar";
+            btnClearComparison.UseVisualStyleBackColor = true;
+            btnClearComparison.Click += btnClearComparison_Click;
             // 
             // Form1
             // 
@@ -668,76 +668,76 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Práctica 1.2: Memoria estática vs. memoria dinámica";
             tabControl.ResumeLayout(false);
-            tabArreglos.ResumeLayout(false);
-            tabArreglos.PerformLayout();
-            panelArreglos.ResumeLayout(false);
-            panelArreglos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numTamanoInicial).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numTamanoNuevo).EndInit();
-            tabDinamica.ResumeLayout(false);
-            tabDinamica.PerformLayout();
-            panelDinamica.ResumeLayout(false);
-            panelDinamica.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numNodos).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numLiberar).EndInit();
-            tabComparativa.ResumeLayout(false);
-            tabComparativa.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)tabla).EndInit();
-            panelComparativa.ResumeLayout(false);
-            panelComparativa.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numElementos).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numAcceso).EndInit();
+            tabArrays.ResumeLayout(false);
+            tabArrays.PerformLayout();
+            panelArrays.ResumeLayout(false);
+            panelArrays.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numInitialSize).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numNewSize).EndInit();
+            tabDynamic.ResumeLayout(false);
+            tabDynamic.PerformLayout();
+            panelDynamic.ResumeLayout(false);
+            panelDynamic.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numNodes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numRelease).EndInit();
+            tabComparison.ResumeLayout(false);
+            tabComparison.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)comparisonGrid).EndInit();
+            panelComparison.ResumeLayout(false);
+            panelComparison.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numElements).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numAccess).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private TabControl tabControl;
-        private TabPage tabArreglos;
-        private FlowLayoutPanel panelArreglos;
-        private Label lblTamanoInicial;
-        private NumericUpDown numTamanoInicial;
-        private Button btnCrearArreglo;
-        private Label lblTamanoNuevo;
-        private NumericUpDown numTamanoNuevo;
-        private Button btnRedimensionar;
-        private Button btnArregloFijo;
-        private Button btnCrecimiento;
-        private Button btnLimpiarArreglos;
-        private TextBox txtArreglos;
+        private TabPage tabArrays;
+        private FlowLayoutPanel panelArrays;
+        private Label lblInitialSize;
+        private NumericUpDown numInitialSize;
+        private Button btnCreateArray;
+        private Label lblNewSize;
+        private NumericUpDown numNewSize;
+        private Button btnResize;
+        private Button btnFixedArray;
+        private Button btnGrowthCase;
+        private Button btnClearArrays;
+        private TextBox txtArrays;
         private DrawingPanel arrayCanvas;
-        private TabPage tabDinamica;
-        private FlowLayoutPanel panelDinamica;
-        private Label lblNodos;
-        private NumericUpDown numNodos;
-        private Button btnCrearNodos;
-        private Button btnVerReferencias;
-        private Button btnEliminarPrimero;
-        private Button btnValorReferencia;
-        private Label lblLiberar;
-        private NumericUpDown numLiberar;
-        private Button btnLiberar;
-        private Button btnCasoLista;
-        private Button btnLimpiarDinamica;
-        private TextBox txtDinamica;
+        private TabPage tabDynamic;
+        private FlowLayoutPanel panelDynamic;
+        private Label lblNodes;
+        private NumericUpDown numNodes;
+        private Button btnCreateNodes;
+        private Button btnShowReferences;
+        private Button btnRemoveFirst;
+        private Button btnValueVsReference;
+        private Label lblRelease;
+        private NumericUpDown numRelease;
+        private Button btnRelease;
+        private Button btnListCase;
+        private Button btnClearDynamic;
+        private TextBox txtDynamic;
         private DrawingPanel nodeCanvas;
-        private TabPage tabComparativa;
-        private FlowLayoutPanel panelComparativa;
-        private Button btnValidaciones;
+        private TabPage tabComparison;
+        private FlowLayoutPanel panelComparison;
+        private Button btnValidations;
         private Label lblN;
-        private NumericUpDown numElementos;
-        private Button btnComparar;
-        private Label lblLecturas;
-        private NumericUpDown numAcceso;
-        private Button btnAcceso;
-        private Button btnLimpiarComparativa;
-        private TextBox txtSalida;
-        private DataGridView tabla;
+        private NumericUpDown numElements;
+        private Button btnCompare;
+        private Label lblReads;
+        private NumericUpDown numAccess;
+        private Button btnAccess;
+        private Button btnClearComparison;
+        private TextBox txtOutput;
+        private DataGridView comparisonGrid;
         private DataGridViewTextBoxColumn colN;
-        private DataGridViewTextBoxColumn colTiempoVector;
-        private DataGridViewTextBoxColumn colTiempoLista;
-        private DataGridViewTextBoxColumn colMemoriaVector;
-        private DataGridViewTextBoxColumn colMemoriaLista;
-        private DataGridViewTextBoxColumn colCopias;
+        private DataGridViewTextBoxColumn colVectorTime;
+        private DataGridViewTextBoxColumn colListTime;
+        private DataGridViewTextBoxColumn colVectorMemory;
+        private DataGridViewTextBoxColumn colListMemory;
+        private DataGridViewTextBoxColumn colCopies;
     }
 }
