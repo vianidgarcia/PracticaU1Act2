@@ -1,4 +1,6 @@
-namespace PracticaU1Act2;
+using PracticaU1Act2.UI;
+
+namespace PracticaU1Act2.Models;
 
 /// <summary>
 /// Vector that grows at run time.

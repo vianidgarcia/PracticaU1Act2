@@ -1,4 +1,4 @@
-namespace PracticaU1Act2;
+namespace PracticaU1Act2.UI;
 
 public class DrawingPanel : Panel
 {

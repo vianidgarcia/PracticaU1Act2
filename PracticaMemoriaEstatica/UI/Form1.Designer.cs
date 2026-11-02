@@ -1,4 +1,6 @@
-﻿namespace PracticaU1Act2
+﻿using PracticaU1Act2.UI;
+
+namespace PracticaU1Act2
 {
     partial class Form1
     {

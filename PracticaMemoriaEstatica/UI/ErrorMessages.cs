@@ -1,4 +1,4 @@
-namespace PracticaU1Act2;
+namespace PracticaU1Act2.UI;
 
 /// <summary>
 /// Error messages shared by the data structures, so that they are clear

@@ -1,6 +1,6 @@
 using System.Runtime.CompilerServices;
 
-namespace PracticaU1Act2;
+namespace PracticaU1Act2.Models;
 
 /// <summary>
 /// Conceptual demonstrations that contrast static memory (stack, fixed size)

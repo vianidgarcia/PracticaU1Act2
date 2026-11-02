@@ -1,3 +1,6 @@
+using PracticaU1Act2.Models;
+using PracticaU1Act2.UI;
+
 namespace PracticaU1Act2;
 
 /// <summary>
@@ -18,6 +21,19 @@ public partial class Form1 : Form
     public Form1()
     {
         InitializeComponent();
+        ConfigureCustomStyles();
+    }
+
+    private void ConfigureCustomStyles()
+    {
+        // Personalización de renderizado para DataGridView sin alterar lógica
+        comparisonGrid.EnableHeadersVisualStyles = false;
+        comparisonGrid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(30, 41, 59);
+        comparisonGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+        comparisonGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        comparisonGrid.DefaultCellStyle.SelectionBackColor = Color.FromArgb(203, 213, 225);
+        comparisonGrid.DefaultCellStyle.SelectionForeColor = Color.FromArgb(15, 23, 42);
+        comparisonGrid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(248, 250, 252);
     }
 
     // =====================================================================
@@ -175,7 +191,6 @@ public partial class Form1 : Form
     // Helpers
     // =====================================================================
 
-    /// <summary>Runs a short action and shows any error in a message box.</summary>
     private static void RunSafely(Action action)
     {
         try
@@ -188,7 +203,6 @@ public partial class Form1 : Form
         }
     }
 
-    /// <summary>Runs a long test without freezing the window.</summary>
     private async Task RunAsync(Func<Task> test)
     {
         SetBusy(true);
@@ -212,7 +226,6 @@ public partial class Form1 : Form
         tabControl.Enabled = !busy;
     }
 
-    /// <summary>Runs the test on another thread and writes its lines to the given text box.</summary>
     private async Task ShowTextAsync(TextBox target, string title, Func<List<string>> test)
     {
         List<string> lines = await Task.Run(test);

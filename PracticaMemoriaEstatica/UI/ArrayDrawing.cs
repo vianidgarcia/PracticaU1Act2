@@ -1,6 +1,6 @@
 using System.Drawing.Drawing2D;
 
-namespace PracticaU1Act2;
+namespace PracticaU1Act2.UI;
 
 public static class ArrayDrawing
 {

@@ -1,6 +1,6 @@
 using System.Runtime.CompilerServices;
 
-namespace PracticaU1Act2;
+namespace PracticaU1Act2.Models;
 
 /// <summary>
 /// Program 1: an array created with a size chosen at run time

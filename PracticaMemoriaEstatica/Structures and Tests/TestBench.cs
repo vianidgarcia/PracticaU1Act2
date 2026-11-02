@@ -1,7 +1,8 @@
+using PracticaU1Act2.UI;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-namespace PracticaU1Act2;
+namespace PracticaU1Act2.Models;
 
 /// <summary>One row of the comparison table (times are the median of several repetitions).</summary>
 public record ComparisonRow(

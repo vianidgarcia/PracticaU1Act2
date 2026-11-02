@@ -1,6 +1,7 @@
+using PracticaU1Act2.UI;
 using System.Runtime.CompilerServices;
 
-namespace PracticaU1Act2;
+namespace PracticaU1Act2.Models;
 
 /// <summary>
 /// Read-only information about a node. It lets the program display the structure
